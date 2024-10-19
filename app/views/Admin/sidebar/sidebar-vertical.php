@@ -16,7 +16,7 @@
                 <!--navigation-->
                 <ul class="metismenu invisible" id="menu">
                     <li>
-                        <a href="/" class="">
+                        <a href="AdminController.php?action=home" class="">
                             <div class="parent-icon">
                                 <i class="fa-solid fa-house text-white"></i>
                             </div>
@@ -85,13 +85,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-white">
+                                    <a href="AdminController.php?action=list-post" class="text-white">
                                         <i class="bx bx-right-arrow-alt"></i>
                                         Bài đăng
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-white">
+                                    <a href="AdminController.php?action=list-feedback" class="text-white">
                                         <i class="bx bx-right-arrow-alt"></i>
                                         Phản hồi
                                     </a>
