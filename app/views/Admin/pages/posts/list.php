@@ -51,7 +51,7 @@
                                                             <td class="text-center">'.$created_at.'</td>
                                                             <td class="text-center">
                                                                 <a href="'.$editStudent.'"><i class="bx bx-edit-alt event-stop"></i></a>
-                                                                <a href="'.$deleteStudent.'"><i class="bx bx-trash btn-delete" data-id='.$id.'></i></a>
+                                                                <a href="#"><i class="bx bx-trash btn-delete" data-id='.$id.'></i></a>
                                                             </td>
                                                         </tr>
                                                     </tbody>';
@@ -69,4 +69,31 @@
     </div>
     </body>
 
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '.btn-delete', function () {
+            const id = $(this).data('id');
+            Swal.fire({
+                title: 'Bạn có chắc muốn xóa bài đăng này?',
+                showCancelButton: true,
+                icon: "warning",
+                reverseButtons: true,
+                confirmButtonText: "Đồng ý",
+                cancelButtonText: "Hủy",
+                customClass: {
+                    title: 'd-flex',
+                    actions: 'w-100 justify-content-center'
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const url = "AdminController.php?action=delete-post&id=" + id;
+                    window.location.href = url; 
+                }
+            });
+        })
+    });
+</script>
