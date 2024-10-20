@@ -191,6 +191,10 @@
                 }
                 include '../views/Admin/pages/feedbacks/create.php';
                 break;
+            case 'list-comment':
+                $courses = getCourseWithComment();
+                include '../views/Admin/pages/comments/list.php';
+                break;
             default:
                 $posts = getDashboard();
                 include '../views/Admin/home/home.php';
