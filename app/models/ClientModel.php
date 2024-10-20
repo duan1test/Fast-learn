@@ -8,13 +8,11 @@ function login($data)
     
 	if($user){
         unset($user['password']);
+        unset($_SESSION["user"]);
 		$_SESSION["loged"] = true;
-        $_SESSION["user"]['role_name'] = $user;
-		if ($user['role_name'] == 'teacher') {
-            header("location:AdminController.php?action=list-student");
-            setcookie("success", "Đăng nhập thành công!", time()+1, "/","", 0);
-        }
-        header("location:AdminController.php?action=create-student");
+        $_SESSION["user"]= $user;
+
+        header("location:AdminController.php?action=''");
         setcookie("success", "Đăng nhập thành công!", time()+1, "/","", 0);
 	}
 	else{

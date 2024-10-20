@@ -1,6 +1,6 @@
 <?php
-    ob_start();
     session_start();
+    ob_start();
     if(isset($_COOKIE['success'])) {
         $success = "<script type='text/javascript'>alert('".$_COOKIE['success']."');</script>";
         echo $success;
