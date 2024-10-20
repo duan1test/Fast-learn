@@ -205,4 +205,18 @@
         ";
         pdo_execute($sql);
     }
+
+    function getCourseWithComment()
+    {
+        $sql = "SELECT comments.message, users.name as user_name, courses.name, comments.created_at, courses.id as id
+            FROM comments
+            JOIN courses ON comments.course_id = courses.id
+            JOIN users ON comments.user_id = users.id
+            WHERE courses.teacher_id = 7
+            AND comments.parent_id IS NULL
+            ORDER BY comments.id DESC;
+        ";
+        $courses = pdo_query($sql);
+        return $courses;
+    }
 ?>

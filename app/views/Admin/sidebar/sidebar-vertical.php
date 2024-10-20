@@ -125,6 +125,15 @@
                                 </div>
                                 <div class="menu-title text-white">Gửi phản hồi</div>
                             </a>
-                        </li>
+                    </li>
+                    </li>
+                        <li>
+                            <a href="AdminController.php?action=list-comment" class="">
+                                <div class="parent-icon">
+                                <i class="fa-solid fa-code-pull-request text-white"></i>
+                                </div>
+                                <div class="menu-title text-white">Danh sách truy vấn</div>
+                            </a>
+                    </li>
                 </ul>
             </div>
