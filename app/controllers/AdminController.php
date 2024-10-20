@@ -115,12 +115,88 @@
                     header('Location: AdminController.php?action=comments-list-student');
                 }
                 break;
-
+            case 'list-post': 
+                $posts = getListPost();
+                include '../views/Admin/pages/posts/list.php';
+                break;
+            case 'create-post': 
+                if(isset($_POST['create_post']) && ($_POST['create_post'])){
+                    $title = $_POST['title'];
+                    $tag = $_POST['tag'];
+                    $title_child = $_POST['title_child'];
+                    $content = $_POST['content'];
+                    $content_1 = $_POST['content_1'];
+                    $content_2 = $_POST['content_2'];
+                    $content_3 = $_POST['content_3'];
+                    $content_4 = $_POST['content_4'];
+                    $content_5 = $_POST['content_5'];
+                    createPost($title, $tag, $title_child, $content, $content_1, $content_2, $content_3, $content_4, $content_5);
+                    $posts = getListPost();
+                    include '../views/Admin/pages/posts/list.php';
+                }
+                else {
+                    include '../views/Admin/pages/posts/create.php';
+                }
+                break;
+            case 'home': 
+                $posts = getDashboard();
+                include '../views/Admin/home/home.php';
+                break;
+            case 'post-detail': 
+                $id = $_GET['id'];
+                $post = getPost($id);
+                $posts = getDashboard();
+                updateViewer($id);
+                include '../views/Admin/pages/posts/detail.php';
+                break;
+            case 'list-feedback': 
+                $feedbacks = getListFeedBack();
+                include '../views/Admin/pages/feedbacks/list.php';
+                break;
+            case 'edit-post': 
+                if(isset($_POST['edit_post']) && $_POST['edit_post']) {
+                    $id = $_POST['id'];
+                    $title = $_POST['title'];
+                    $tag = $_POST['tag'];
+                    $title_child = $_POST['title_child'];
+                    $content = $_POST['content'];
+                    $content_1 = $_POST['content_1'];
+                    $content_2 = $_POST['content_2'];
+                    $content_3 = $_POST['content_3'];
+                    $content_4 = $_POST['content_4'];
+                    $content_5 = $_POST['content_5'];
+                    updatePost($id, $title, $tag, $title_child, $content, $content_1, $content_2, $content_3, $content_4, $content_5);
+                    $posts = getListPost();
+                    include '../views/Admin/pages/posts/list.php';
+                } else {
+                    $id = $_GET['id'];
+                    $post = getPost($id);
+                    include '../views/Admin/pages/posts/edit.php';
+                }
+                break;
+            case 'delete-post': 
+                $id = $_GET['id'];
+                deletePost($id);
+                $posts = getListPost();
+                include '../views/Admin/pages/posts/list.php';
+                break;
+            case 'create-feedback':
+                if(isset($_POST['create_feedback']) && $_POST['create_feedback']) {
+                    $title = $_POST['title'];
+                    $email = $_POST['email'];
+                    $feedback_level = $_POST['feedback_level'];
+                    $feedback_content = $_POST['feedback_content'];
+                    createFeedback($title, $email, $feedback_level, $feedback_content);
+                }
+                include '../views/Admin/pages/feedbacks/create.php';
+                break;
             default:
+                $posts = getDashboard();
                 include '../views/Admin/home/home.php';
                 break;
         }
     }else{
+        $posts = getDashboard();
         include '../views/Admin/home/home.php';
     }
     include '../views/Admin/footer/footer.php';
