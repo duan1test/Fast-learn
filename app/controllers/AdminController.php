@@ -66,6 +66,56 @@
                 }
                 break;
 
+            // student
+            case 'list-student-course':
+                $courses = getListCourse();
+                include '../views/Admin/pages/student-courses/list-student-course.php';
+                break;
+
+            case 'course-detail-user':
+                if(isset($_GET['id']) && ($_GET['id'] > 0)){
+                    $course = getCourseById($_GET['id']);
+                }
+                include '../views/Admin/pages/student-courses/detail-student-course.php';
+                break;
+
+            case 'course-register-user':
+                if(isset($_POST['course-register-user'])){
+                    
+                    $courseId = $_POST['course_id'];
+                    // set cứng userId đang đăng nhập
+                    $userId = 6;
+                    registerCourse($courseId, $userId);
+                    header("Location: AdminController.php?action=list-student-course-registed");
+                }
+                break;
+
+            case 'list-student-course-registed':
+                // set cứng userId đang đăng nhập
+                $userId = 6;
+                $courses = getListCourseRegisted($userId);
+                include '../views/Admin/pages/student-courses/list-student-course-registed.php';
+                break;
+
+            case 'comments-list-student':
+                $courseId = $_GET['course_id'];
+                $comments = getCommentsWithChildren($courseId);
+                include '../views/Admin/pages/comments/comments-list-student.php';
+                break;
+
+            case 'comments-list-student-store':
+                if(isset($_POST['comments-list-student-store'])){
+                    $courseId = $_POST['course_id'];
+                    $child = $_POST['child'];
+                    $messages = $_POST['messages'];
+                    // set cứng userId đang đăng nhập
+                    $userId = 6;
+                    commentStore($courseId, $userId, $child, $messages);
+                    $comments = getCommentsWithChildren($courseId);
+                    header('Location: AdminController.php?action=comments-list-student');
+                }
+                break;
+
             default:
                 include '../views/Admin/home/home.php';
                 break;
