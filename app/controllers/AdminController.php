@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if(isset($_COOKIE['success'])) {
+        $success = "<script type='text/javascript'>alert('".$_COOKIE['success']."');</script>";
+        echo $success;
+    } 
     include '../models/pdo.php';
     include '../models/AdminModel.php';
     include '../views/Admin/header/header.php';
@@ -21,13 +26,11 @@
                     $email = $_POST['email'];
                     $phone = $_POST['phone'];
                     $dateStart = $_POST['dateStart'];
-                    $password = $_POST['password'];
+                    $password = md5($_POST['password']);
                     $specialized = $_POST['specialized'];
                     $role = $_POST['role'];
                     $active = $_POST['active'];
                     createStudent($code,$name,$role_name,$class,$email,$phone,$dateStart,$password,$specialized,$active);
-                    // insert_danhmuc($ten_danh_muc,$mo_ta,$img,$trang_thai);
-
                 }
                 include '../views/Admin/pages/students/create-student.php';
                 break;
