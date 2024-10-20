@@ -1,0 +1,25 @@
+- trang chủ
+- quản lý sinh viên x
+- quản lý giảng viên x
+- quản lý khóa học x
+- bài đăng x 
+- phản hồi x
+- profile x 
+Giảng viên
+- khóa học giảng dạy 
+- danh sách truy vấn
+Sinh viên
+- các khóa học của tôi
+- gửi phản hồi
+- danh sách khóa học
+- bỏ phân quyền, filter lọc, search, validate
+- bỏ tạo khóa học(sidebar)
+huy: - qly sinh, viên giảng viên
+     - quản lý khóa học
+vanh: sinh viên
+thắng: - giảng viên
+       - trang chủ
+       - bài đăng, phản hồi
+hoan: - đăng kí
+      - đăng nhập
+      - profile

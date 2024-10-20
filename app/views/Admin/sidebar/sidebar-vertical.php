@@ -40,7 +40,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="text-white">
+                                    <a href="AdminController.php?action=list-teacher" class="text-white">
                                             <i class="bx bx-right-arrow-alt"></i>
                                             Quản lý giảng viên
                                         </a>
@@ -60,13 +60,13 @@
                             </a>
                             <ul style="background-color: unset;">
                                 <li>
-                                    <a href="" class="text-white">
+                                    <a href="AdminController.php?action=list-course" class="text-white">
                                         <i class="bx bx-right-arrow-alt"></i>
                                         Quản lý khoá học
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-white">
+                                    <a href="AdminController.php?action=create-course" class="text-white">
                                         <i class="bx bx-right-arrow-alt"></i>
                                         Tạo khoá học
                                     </a>
