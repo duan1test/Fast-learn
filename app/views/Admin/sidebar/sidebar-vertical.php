@@ -98,5 +98,25 @@
                                 </li>
                             </ul>
                         </li>
+
+                    <!-- Đăng ký khóa học -->
+                    <li>
+                        <a href="AdminController.php?action=list-student-course" class="has-arrow">
+                            <div class="parent-icon">
+                                <i class="fa-solid fa-graduation-cap text-white"></i>
+                            </div>
+                            <div class="menu-title text-white">Đăng ký khóa học</div>
+                        </a>
+                    </li>
+                    
+                    <!-- Các khóa học đã đăng ký -->
+                    <li>
+                        <a href="AdminController.php?action=list-student-course-registed" class="has-arrow">
+                            <div class="parent-icon">
+                                <i class="icon fa fa-tachometer fa-fw  text-white"></i>
+                            </div>
+                            <div class="menu-title text-white">Các khóa học của tôi</div>
+                        </a>
+                    </li>
                 </ul>
             </div>
