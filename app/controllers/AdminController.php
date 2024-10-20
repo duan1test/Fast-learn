@@ -320,6 +320,28 @@
                 break;
             //profile
             case 'profile':
+                if(isset($_POST['update_information'])){
+                    $data = [];
+                    $data['name'] = $_POST['name'];
+                    $data['email'] = $_POST['email'];
+                    $id = $_SESSION['user']['id'];
+                    updateInformation($data,$id);
+                }
+
+                if(isset($_POST['update_password'])){
+                    $data = [];
+                    $id = $_SESSION['user']['id'];
+                    $data['password'] = md5($_POST['password']);
+                    $data['new_password'] = $_POST['new_password'];
+                    $data['confirm_new_password'] = $_POST['confirm_new_password'];
+                    updatePassword($data,$id);
+                }
+                
+                if(isset($_POST['delete'])){
+                    deleteUser($_SESSION['user']['id']);
+                    header("location:ClientController.php?action=login");
+                }
+
                 include '../views/Admin/pages/profile/index.php';
                 break;
             default:

@@ -11,9 +11,9 @@
                                         class="bx bx-search vertical-align-middle"></i>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown dropdown-user-profile">
-                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
-                                    data-bs-toggle="dropdown">
+                            <li style="display: flex;" class="nav-item dropdown dropdown-user-profile">
+                                <a href="ClientController.php?action=logout" class=" text-white">Đăng xuất</a>
+                                <a style="margin-left: 12px;" class="dropdown-toggle dropdown-toggle-nocaret"  href="AdminController.php?action=profile" data-bs-toggle="dropdown">
                                     <div class="d-flex user-box align-items-center">
                                         <div class="user-info">
                                             <p class="user-name mb-0 text-white"><?=$_SESSION["user"]["name"] ?></p>
@@ -21,10 +21,6 @@
                                         <img src="../../public/assets/images/default_avatar.png" class="user-img" alt="" />
                                     </div>
                                 </a>
-                                <div>
-                                    <a href="">Quản lý tài khoản</a>
-                                    <a href="ClientController.php?action=logout">Đăng xuất</a>
-                               </div>
                             </li>
                         </ul>
                     </div>
