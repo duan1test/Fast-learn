@@ -18,12 +18,12 @@
                                         </label>
                                         <input name="code" type="text" value=""
                                             class="form-control"
-                                            placeholder="Mã sinh viên">
+                                            placeholder="Mã sinh viên" required>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Ngày bắt đầu học</label>
-                                        <input name="dateStart" type="date" value=""
+                                        <input name="dateStart" type="datetime-local" value=""
                                             class="form-control"
                                             placeholder="Ngày bắt đầu học">
                                     </div>
@@ -37,7 +37,7 @@
                                         </label>
                                         <input name="name" type="text" value=""
                                             class="form-control"
-                                            placeholder="Tên sinh viên">
+                                            placeholder="Tên sinh viên" required>
                                     </div>
 
                                     <div class="col-md-6">
@@ -47,7 +47,7 @@
                                         </label>
                                         <input type="password" name="password"
                                             class="form-control"
-                                            placeholder="Mật khẩu">
+                                            placeholder="Mật khẩu" required>
                                     </div>
                                 </div>
 
@@ -59,7 +59,7 @@
                                         </label>
                                         <input name="class" type="text" value=""
                                             class="form-control"
-                                            placeholder="Lớp">
+                                            placeholder="Lớp" required>
                                     </div>
 
                                     <div class="col-md-6">
@@ -78,7 +78,7 @@
                                         </label>
                                         <input name="email" type="text" value=""
                                             class="form-control"
-                                            placeholder="Email">
+                                            placeholder="Email" required>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
@@ -88,7 +88,7 @@
                                         </label>
                                         <input name="specialized" type="text" value=""
                                             class="form-control"
-                                            placeholder="Chuyên ngành">
+                                            placeholder="Chuyên ngành" required>
                                     </div>
                                 </div>
 
@@ -100,20 +100,6 @@
                                             placeholder="Điện thoại">
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">
-                                            Quyền
-                                            <span class="text-danger" style="margin-top: 5px;"> *</span>
-                                        </label>
-                                        <select name="role"
-                                            class="form-select form-control choices">
-                                            <option value="" placeholder>Chọn quyền</option>
-                                            <!-- @foreach ($roles as $key => $role)
-                                                <option @if (old('role') == $key) selected @endif value="{{ $key }}">
-                                                    {{ $role }}</option>
-                                            @endforeach -->
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="row mb-3"> 
                                     <div class="col-md-6">
@@ -122,7 +108,7 @@
                                             <span class="text-danger" style="margin-top: 5px;"> *</span>
                                         </label>
                                         <select name="active"
-                                            class="form-select form-control choices">
+                                            class="form-select form-control choices" required>
                                         <option value="1">Hoạt động</option>
                                         <option value="0">Không hoạt động</option>
                                         </select>
@@ -144,3 +130,14 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("form-create-user").addEventListener("submit", function(event) {
+        var password = document.querySelector("input[name='password']").value;
+        var confirmPassword = document.querySelector("input[name='confirm_password']").value;
+
+        if (password !== confirmPassword) {
+            alert("Mật khẩu và xác nhận mật khẩu không khớp!");
+            event.preventDefault();
+        }
+    });
+</script>
