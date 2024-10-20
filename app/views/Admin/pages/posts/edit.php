@@ -84,14 +84,14 @@
                                         <textarea name="content_5" id="content_5" class="form-control"><?= $content_5 ?></textarea>
                                     </div>
 
-                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="input-container">
                                             <label for="formFile" class="form-label">
                                                 File đính kèm
                                             </label>
                                             <input type="file" class="filepond hidden" name="filepond" multiple>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="card-footer">

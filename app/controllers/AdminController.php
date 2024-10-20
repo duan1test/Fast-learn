@@ -108,11 +108,12 @@
                     $courseId = $_POST['course_id'];
                     $child = $_POST['child'];
                     $messages = $_POST['messages'];
+                    $comment_id = $_POST['comment_id'] ?? null;
                     // set cứng userId đang đăng nhập
                     $userId = 6;
-                    commentStore($courseId, $userId, $child, $messages);
+                    commentStore($courseId, $userId, $child, $messages, $comment_id);
                     $comments = getCommentsWithChildren($courseId);
-                    header('Location: AdminController.php?action=comments-list-student');
+                    header("Location: AdminController.php?action=comments-list-student&course_id=$courseId");
                 }
                 break;
             case 'list-post': 

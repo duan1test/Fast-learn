@@ -120,13 +120,15 @@
         return $childComments;
     }
     
-    function commentStore($courseId, $userId, $child, $message) {
+    function commentStore($courseId, $userId, $child, $message, $comment_id) {
         if ($child == true) {
+            $sql = "insert into comments(course_id, user_id, message, parent_id) 
+                VALUES('$courseId','$userId', '$message', '$comment_id')";
         } else {
             $sql = "insert into comments(course_id, user_id, message) 
                 VALUES('$courseId','$userId', '$message')";
-            pdo_execute($sql);
         }
+        pdo_execute($sql);
     }
 
     function getListPost() 
