@@ -5,7 +5,7 @@
                 <div class="card radius-15">
                     <div class="">
                         <div class="card-header">
-                            <h5 class="page-title mt-3 mb-3">Tạo mới sinh viên</h5>
+                            <h5 class="page-title mt-3 mb-3">Cập nhật sinh viên</h5>
                         </div>
                         <div class="card-body">
                             <form action="AdminController.php?action=create-student" method="post" id="form-create-user">
@@ -117,9 +117,7 @@
                                 
                                 <div class="card-footer">
                                     <div class="text-end">
-                                        <button class="btn-store-user btn btn-primary py-2">
-                                            <input type="submit" name="create_student" value="Tạo">
-                                        </button>
+                                        <input type="submit" name="create_student" value="Tạo" class="btn btn-primary py-2">
                                     </div>
                                 </div>
                             </form>
