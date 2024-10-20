@@ -21,26 +21,6 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="row mt-2">
-                                <div class="col-md-3">
-                                    <input type="text" name="filter_user" id="filter_user" class="form-control filters" placeholder="Tìm kiếm nhanh">
-                                </div>
-                                <div class="col-md-3">
-                                    <select name="role" id="role" class="form-control filters choices form-select">
-                                        <option value="">Chọn ngành học</option>
-                                        {{-- @foreach ($roles as $role)
-                                            <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                        @endforeach --}}
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select name="status" id="status" class="form-control filters choices form-select">
-                                        <option value="">Chọn lớp</option>
-                                        <option value="1">20A</option>
-                                        <option value="0">21A</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="table-responsive mt-3">
                                 <table class="table table-striped table-bordered table-border mb-0">
                                     <thead class="thead-dark">
@@ -54,29 +34,26 @@
                                             <th class="text-center w-action">Thao tác</th>
                                         </tr>
                                     </thead>
-                                    
-                                        <?php
-                                            foreach ($students as $student) {
-                                                extract($student);
-                                                $deleteStudent = "AdminController.php?action=delete-student&id=".$id;
-                                                echo '
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="text-center">'.$code.'</td>
-                                                        <td class="text-center">'.$name.'</td>
-                                                        <td class="text-center">'.$class.'</td>
-                                                        <td class="text-center">'.$specialized.'</td>
-                                                        <td class="text-center">'.$email.'</td>
-                                                        <td class="text-center">'.$active_status.'</td>
-                                                        <td class="text-center">
-                                                            <a href=""><i class="bx bx-edit-alt event-stop"></i></a>
-                                                            <a href="'.$deleteStudent.'"><i class="bx bx-trash"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>';
-                                            }
-                                        ?>
-                                    
+                                    <?php
+                                        foreach ($students as $student) {
+                                            extract($student);
+                                            $editStudent = "AdminController.php?action=edit-student&id=".$id;
+                                            $deleteStudent = "AdminController.php?action=delete-student&id=".$id;
+                                            echo '
+                                                <tr>
+                                                    <td class="text-center">'.$code.'</td>
+                                                    <td class="text-center">'.$name.'</td>
+                                                    <td class="text-center">'.$class.'</td>
+                                                    <td class="text-center">'.$specialized.'</td>
+                                                    <td class="text-center">'.$email.'</td>
+                                                    <td class="text-center">'.$active_status.'</td>
+                                                    <td class="text-center">
+                                                        <a href="'.$editStudent.'"><i class="bx bx-edit-alt event-stop"></i></a>
+                                                        <a href="'.$deleteStudent.'"><i class="bx bx-trash"></i></a>
+                                                    </td>
+                                                </tr>';
+                                        }
+                                    ?>
                                 </table>
                             </div>
                         </div>

@@ -16,7 +16,7 @@
                 <!--navigation-->
                 <ul class="metismenu invisible" id="menu">
                     <li>
-                        <a href="/" class="">
+                        <a href="AdminController.php?action=home" class="">
                             <div class="parent-icon">
                                 <i class="fa-solid fa-house text-white"></i>
                             </div>
@@ -85,18 +85,55 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-white">
+                                    <a href="AdminController.php?action=list-post" class="text-white">
                                         <i class="bx bx-right-arrow-alt"></i>
                                         Bài đăng
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" class="text-white">
+                                    <a href="AdminController.php?action=list-feedback" class="text-white">
                                         <i class="bx bx-right-arrow-alt"></i>
                                         Phản hồi
                                     </a>
                                 </li>
                             </ul>
                         </li>
+
+                    <!-- Đăng ký khóa học -->
+                    <li>
+                        <a href="AdminController.php?action=list-student-course" class="has-arrow">
+                            <div class="parent-icon">
+                                <i class="fa-solid fa-graduation-cap text-white"></i>
+                            </div>
+                            <div class="menu-title text-white">Đăng ký khóa học</div>
+                        </a>
+                    </li>
+                    
+                    <!-- Các khóa học đã đăng ký -->
+                    <li>
+                        <a href="AdminController.php?action=list-student-course-registed" class="has-arrow">
+                            <div class="parent-icon">
+                                <i class="icon fa fa-tachometer fa-fw  text-white"></i>
+                            </div>
+                            <div class="menu-title text-white">Các khóa học của tôi</div>
+                        </a>
+                    </li>
+                        <li>
+                            <a href="AdminController.php?action=create-feedback" class="">
+                                <div class="parent-icon">
+                                <i class="fa-regular fa-comments text-white"></i>
+                                </div>
+                                <div class="menu-title text-white">Gửi phản hồi</div>
+                            </a>
+                    </li>
+                    </li>
+                        <li>
+                            <a href="AdminController.php?action=list-comment" class="">
+                                <div class="parent-icon">
+                                <i class="fa-solid fa-code-pull-request text-white"></i>
+                                </div>
+                                <div class="menu-title text-white">Danh sách truy vấn</div>
+                            </a>
+                    </li>
                 </ul>
             </div>
