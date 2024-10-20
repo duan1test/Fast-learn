@@ -23,13 +23,13 @@
                                 <div class="card-body p-5">
                                     <div class="text-center d-flex flex-column justify-content-center align-items-center">
                                         <div>
-                                            <img style="width: 150px;" src="../../public/assets/images/logo.png" alt="">
+                                            <img style="width: 150px;" src="public/assets/images/logo.png" alt="">
                                         </div>                  
                                         <span class="fw-bold mt-2" style="font-size: 18px;">ĐĂNG NHẬP TÀI KHOẢN</span>
                                     </div>
                                     <div class="">
                                         <div class="form-body">
-                                            <form class="row g-3" method="POST" action="ClientController.php?action=login">
+                                            <form class="row g-3" method="POST" action="app/controllers/ClientController.php?action=login">
                                             <?php
                                                 if(isset($_COOKIE['error'])) {
                                                     $error = '<div class="content"><p style="color: red;text-align: center;">'.$_COOKIE['error'].'</p></div>';
