@@ -16,7 +16,7 @@
                                                 <?php foreach ($comments as $comment): ?>
                                                     <div class="d-flex flex-start mt-4">
                                                         <img style="max-width: unset; width: 50px; height: 50px; border: 1px solid #000;" class="rounded-circle shadow-1-strong me-3"
-                                                            src="assets/images/avatar-default.png" alt="avatar" />
+                                                            src="../../public/img/logo.png" alt="avatar" />
                                                         <div class="flex-grow-1 flex-shrink-1">
                                                             <div>
                                                                 <div class="d-flex justify-content-between align-items-center">
@@ -35,7 +35,7 @@
                                                                     <div class="d-flex flex-start mt-4">
                                                                         <a class="me-3" href="#">
                                                                             <img style="max-width: unset; width: 50px; height: 50px; border: 1px solid #000;" class="rounded-circle shadow-1-strong"
-                                                                                src="assets/images/avatar-default.png" alt="avatar" />
+                                                                                src="../../public/img/logo.png" alt="avatar" />
                                                                         </a>
                                                                         <div class="flex-grow-1 flex-shrink-1">
                                                                             <div>
