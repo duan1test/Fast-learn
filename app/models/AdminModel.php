@@ -120,4 +120,12 @@
         return $childComments;
     }
     
+    function commentStore($courseId, $userId, $child, $message) {
+        if ($child == true) {
+        } else {
+            $sql = "insert into comments(course_id, user_id, message) 
+                VALUES('$courseId','$userId', '$message')";
+            pdo_execute($sql);
+        }
+    }
 ?>

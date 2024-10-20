@@ -53,8 +53,9 @@
                                                                 <?php endforeach; ?>
                                                             <?php endif; ?>
 
-                                                            <form class="w-100 mt-2 fw-bold" id="form-child-<?php echo $comment['id']; ?>" action="comments_store.php" method="POST">
+                                                            <form class="w-100 mt-2 fw-bold" id="form-child-<?php echo $comment['id']; ?>" action="AdminController.php?action=comments-list-student-store" method="POST">
                                                                 <label for="">Trả lời truy vấn</label>
+                                                                <input type="hidden" name="comments-list-student-store">
                                                                 <input type="hidden" name="course_id" value="<?php echo $comment['course_id']; ?>">
                                                                 <input type="hidden" name="comment_id" value="<?php echo $comment['id']; ?>">
                                                                 <input type="hidden" name="child" value="1">
@@ -65,8 +66,9 @@
                                                     </div>
                                                     <?php endforeach; ?>
 
-                                                    <form class="w-100 mt-2 fw-bold p-2" id="form-parent" style="border: 1px dashed #ccc;" action="comments_store.php" method="POST">
+                                                    <form class="w-100 mt-2 fw-bold p-2" id="form-parent" style="border: 1px dashed #ccc;" action="AdminController.php?action=comments-list-student-store" method="POST">
                                                         <label for="">Đăng truy vấn</label>
+                                                        <input type="hidden" name="comments-list-student-store">
                                                         <input type="hidden" name="course_id" value="<?php echo $courseId; ?>">
                                                         <input type="hidden" name="child" value="0">
                                                         <textarea name="messages" required class="form-control"></textarea>
@@ -88,6 +90,7 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
 <script>
     $(document).ready(function () {
         $(document).on('click', '.btn-child', function() {
