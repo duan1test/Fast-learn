@@ -318,6 +318,10 @@
                 $category = getCategoryById($course['category_id']);
                 include '../views/Admin/pages/courses/detail.php';
                 break;
+            //profile
+            case 'profile':
+                include '../views/Admin/pages/profile/index.php';
+                break;
             default:
                 $posts = getDashboard();
                 include '../views/Admin/home/home.php';
