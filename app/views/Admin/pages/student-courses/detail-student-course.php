@@ -70,12 +70,12 @@
                                         <input type="text" value="<?php echo $course['id']; ?>" hidden name="course_id">
                                         <input type="text" hidden name="course-register-user">
                                         <?php
-                                            $_SESSION['user_id'] = 6;
+                                            $_SESSION["user"]["id"]
                                         ?>
                                         <button type="button" class="btn btn-primary mt-2 register-course"
-                                            <?php if (isCourseRegisteredByUser($course['id'], $_SESSION['user_id'])) echo 'disabled'; ?>
+                                            <?php if (isCourseRegisteredByUser($course['id'],$_SESSION["user"]["id"])) echo 'disabled'; ?>
                                             style="border-radius: 30px;">
-                                            <?php if (isCourseRegisteredByUser($course['id'], $_SESSION['user_id'])): ?>
+                                            <?php if (isCourseRegisteredByUser($course['id'],$_SESSION["user"]["id"])): ?>
                                                 Đã đăng ký
                                             <?php else: ?>
                                                 Đăng ký học
@@ -106,7 +106,7 @@
                                         </ul>
                                     </div>
                                     
-                                    <?php if (isCourseRegisteredByUser($course['id'], $_SESSION['user_id'])): ?>
+                                    <?php if (isCourseRegisteredByUser($course['id'], $_SESSION["user"]["id"])): ?>
                                         <div class="mt-5">
                                             <a href="<?php echo 'AdminController.php?action=comments-list-student&course_id=' . $course['id']; ?>" class="btn btn-primary mt-2" style="border-radius: 30px;">
                                                 Diễn dàn trao đổi

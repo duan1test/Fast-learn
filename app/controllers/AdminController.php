@@ -1,5 +1,10 @@
 <?php
+    session_start();
     ob_start();
+    if(isset($_COOKIE['success'])) {
+        $success = "<script type='text/javascript'>alert('".$_COOKIE['success']."');</script>";
+        echo $success;
+    } 
     include '../models/pdo.php';
     include '../models/AdminModel.php';
     include '../views/Admin/header/header.php';
@@ -24,7 +29,7 @@
                     $email = $_POST['email'];
                     $phone = $_POST['phone'];
                     $dateStart = $_POST['dateStart'];
-                    $password = $_POST['password'];
+                    $password = md5($_POST['password']);
                     $specialized = $_POST['specialized'];
                     $active = $_POST['active'];
                     createStudent($code,$name,$role_name,$class,$email,$phone,$dateStart,$password,$specialized,$active);
@@ -82,16 +87,14 @@
                 if(isset($_POST['course-register-user'])){
                     
                     $courseId = $_POST['course_id'];
-                    // set cứng userId đang đăng nhập
-                    $userId = 6;
+                    $userId = $_SESSION["user"]['id'];
                     registerCourse($courseId, $userId);
                     header("Location: AdminController.php?action=list-student-course-registed");
                 }
                 break;
 
             case 'list-student-course-registed':
-                // set cứng userId đang đăng nhập
-                $userId = 6;
+                $userId = $_SESSION["user"]['id'];
                 $courses = getListCourseRegisted($userId);
                 include '../views/Admin/pages/student-courses/list-student-course-registed.php';
                 break;
@@ -108,8 +111,7 @@
                     $child = $_POST['child'];
                     $messages = $_POST['messages'];
                     $comment_id = $_POST['comment_id'] ?? null;
-                    // set cứng userId đang đăng nhập
-                    $userId = 6;
+                    $userId = $_SESSION["user"]['id'];
                     commentStore($courseId, $userId, $child, $messages, $comment_id);
                     $comments = getCommentsWithChildren($courseId);
                     header("Location: AdminController.php?action=comments-list-student&course_id=$courseId");
