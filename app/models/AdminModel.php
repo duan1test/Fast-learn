@@ -295,4 +295,36 @@
         $sql = "delete from courses where id=".$id;
         pdo_execute($sql);
     }
-?>
+
+    //profile
+    function updateInformation($data,$id){
+        $sql = "update users set name = '".$data['name']."' ,email ='".$data['email']."' where id=".$id;
+        pdo_execute($sql);
+        $_SESSION['user']['name'] = $data['name'];
+        $_SESSION['user']['email'] = $data['email'];
+        header("location:AdminController.php?action=profile");
+        setcookie("success", "Cập nhập thông tin thành công!", time()+1, "/","", 0);
+    }
+
+    function updatePassword($data,$id){
+        $sql = "select * from users where id=".$id;
+        $user = pdo_query_one($sql);
+        if ($data['new_password'] == $data['confirm_new_password']) {
+            if($user['password'] == $data['password']){
+                $data['new_password'] = md5($data['new_password']);
+                $sql = "update users set password = '".$data['new_password']."' where id=".$id;
+                pdo_execute($sql);
+
+                header("location:AdminController.php?action=profile");
+                setcookie("success", "Cập nhập mật khẩu thành công!", time()+1, "/","", 0);
+            }else{
+
+                header("location:AdminController.php?action=profile");
+                setcookie("error_password", "Cập nhập mật khẩu không thành công, mật khẩu cũ của bạn!", time()+1, "/","", 0);
+            }
+        }else{
+
+            header("location:AdminController.php?action=profile");
+            setcookie("error_password", "Mật khẩu mới và xác nhận mật khẩu mới không giống nhau !", time()+1, "/","", 0);        }
+        }
+    ?>

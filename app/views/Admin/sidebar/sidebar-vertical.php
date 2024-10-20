@@ -24,33 +24,32 @@
                         </a>
                     </li>
 
-                        <?php if ($_SESSION["user"]['role_name'] == 'admin') { ?>
-                            <li>
-                                <a href="javascript:;" class="has-arrow">
-                                    <div class="parent-icon">
-                                        <i class="fa-regular fa-address-card text-white"></i>
-                                    </div>
-                                    <div class="menu-title text-white">Quản lý hồ sơ</div>
-                                </a>
-                                <ul style="background-color: unset;">
-                                    <li>
-                                        <a href="AdminController.php?action=list-student" class="text-white">
-                                            <i class="bx bx-right-arrow-alt"></i>
-                                            Quản lý sinh viên
-                                        </a>
-                                    </li>
-                                    <li>
-                                    <a href="AdminController.php?action=list-teacher" class="text-white">
-                                            <i class="bx bx-right-arrow-alt"></i>
-                                            Quản lý giảng viên
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                       <?php } ?>
+                     <?php if ($_SESSION["user"]["role_name"] == 'admin') { ?>
+                         <li>
+                             <a href="javascript:;" class="has-arrow">
+                                 <div class="parent-icon">
+                                     <i class="fa-regular fa-address-card text-white"></i>
+                                 </div>
+                                 <div class="menu-title text-white">Quản lý hồ sơ</div>
+                             </a>
+                             <ul style="background-color: unset;">
+                                 <li>
+                                     <a href="AdminController.php?action=list-student" class="text-white">
+                                         <i class="bx bx-right-arrow-alt"></i>
+                                         Quản lý sinh viên
+                                     </a>
+                                 </li>
+                                 <li>
+                                 <a href="AdminController.php?action=list-teacher" class="text-white">
+                                         <i class="bx bx-right-arrow-alt"></i>
+                                         Quản lý giảng viên
+                                     </a>
+                                 </li>
+                             </ul>
+                         </li>
+                    <?php } ?>
 
-                        <?php if ($_SESSION["user"]['role_name'] == 'teacher' || $_SESSION["user"]['role_name'] == 'admin') { ?>
-                       
+                    <?php if ($_SESSION["user"]['role_name'] == 'teacher' || $_SESSION["user"]['role_name'] == 'admin') { ?>
                         <li>
                             <a href="javascript:;" class="has-arrow">
                                 <div class="parent-icon">
@@ -73,39 +72,38 @@
                                 </li>
                             </ul>
                         </li>
-
-                        <?php } ?>
+                    <?php } ?>
                     
-                        <?php if ($_SESSION["user"]['role_name'] == 'admin') { ?>
-                            <li>
-                                <a href="javascript:;" class="has-arrow">
-                                    <div class="parent-icon">
-                                        <i class="fa-solid fa-solar-panel text-white"></i>
-                                    </div>
-                                    <div class="menu-title text-white">Hệ thống</div>
-                                </a>
-                                <ul style="background-color: unset;">
-                                    <li>
-                                        <a href="" class="text-white">
-                                            <i class="bx bx-right-arrow-alt"></i>
-                                            Phân quyền
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="AdminController.php?action=list-post" class="text-white">
-                                            <i class="bx bx-right-arrow-alt"></i>
-                                            Bài đăng
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="AdminController.php?action=list-feedback" class="text-white">
-                                            <i class="bx bx-right-arrow-alt"></i>
-                                            Phản hồi
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        <?php } ?>
+                    <?php if ($_SESSION["user"]['role_name'] == 'admin') { ?>
+                        <li>
+                            <a href="javascript:;" class="has-arrow">
+                                <div class="parent-icon">
+                                    <i class="fa-solid fa-solar-panel text-white"></i>
+                                </div>
+                                <div class="menu-title text-white">Hệ thống</div>
+                            </a>
+                            <ul style="background-color: unset;">
+                                <li>
+                                    <a href="" class="text-white">
+                                        <i class="bx bx-right-arrow-alt"></i>
+                                        Phân quyền
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="AdminController.php?action=list-post" class="text-white">
+                                        <i class="bx bx-right-arrow-alt"></i>
+                                        Bài đăng
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="AdminController.php?action=list-feedback" class="text-white">
+                                        <i class="bx bx-right-arrow-alt"></i>
+                                        Phản hồi
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    <?php } ?>
 
                     <!-- Đăng ký khóa học -->
                     <?php if ($_SESSION["user"]['role_name'] == 'student' || $_SESSION["user"]['role_name'] == 'admin') { ?>

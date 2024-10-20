@@ -12,7 +12,7 @@ function login($data)
 		$_SESSION["loged"] = true;
         $_SESSION["user"]= $user;
 
-        header("location:AdminController.php?action=''");
+        header("location:AdminController.php?action=home");
         setcookie("success", "Đăng nhập thành công!", time()+1, "/","", 0);
 	}
 	else{
