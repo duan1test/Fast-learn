@@ -86,4 +86,13 @@
         $sql = "DELETE FROM posts WHERE id='$id'";
         pdo_execute($sql);
     }
+
+    function createFeedback($title, $email, $feedback_level, $feedback_content)
+    {
+        $now = date("Y-m-d",time());
+        $sql = "INSERT INTO feedbacks (title, email, feedback_level, feedback_content, created_at) 
+        VALUES ('$title', '$email', '$feedback_level', '$feedback_content', '$now')
+        ";
+        pdo_execute($sql);
+    }
 ?>

@@ -96,12 +96,23 @@
                 $posts = getListPost();
                 include '../views/Admin/pages/posts/list.php';
                 break;
+            case 'create-feedback':
+                if(isset($_POST['create_feedback']) && $_POST['create_feedback']) {
+                    $title = $_POST['title'];
+                    $email = $_POST['email'];
+                    $feedback_level = $_POST['feedback_level'];
+                    $feedback_content = $_POST['feedback_content'];
+                    createFeedback($title, $email, $feedback_level, $feedback_content);
+                }
+                include '../views/Admin/pages/feedbacks/create.php';
+                break;
             default:
                 $posts = getDashboard();
                 include '../views/Admin/home/home.php';
                 break;
         }
     }else{
+        $posts = getDashboard();
         include '../views/Admin/home/home.php';
     }
     include '../views/Admin/footer/footer.php';

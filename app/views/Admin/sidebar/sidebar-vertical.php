@@ -98,5 +98,13 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="AdminController.php?action=create-feedback" class="">
+                                <div class="parent-icon">
+                                <i class="fa-regular fa-comments text-white"></i>
+                                </div>
+                                <div class="menu-title text-white">Gửi phản hồi</div>
+                            </a>
+                        </li>
                 </ul>
             </div>
