@@ -36,7 +36,6 @@
                 break;
         }
     }else{
-        // include 'app/views/Client/register.php';
-        include 'app/views/Client/login.php';
+        header("Location: app/controllers/ClientController.php?action=login");
     }
 ?>

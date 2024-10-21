@@ -12,18 +12,20 @@
                                 </div>
                                 <div style="width: 50%;">
                                     <form action="AdminController.php?action=profile" method="POST">
-                                        <input type="text" name="update_information" hidden>
+                                        <input class="form-control" type="text" name="update_information" hidden>
                                         <div class="content">
                                             <div>
-                                                <label for="">Tên</label>
-                                                <input name="name" type="text" value="<?=$_SESSION['user']['name']?>">
+                                                <label class="form-label" for="">Tên</label>
+                                                <input class="form-control" name="name" type="text" value="<?=$_SESSION['user']['name']?>">
                                             </div>
                                             <div>
-                                                <label for="">Email</label>
-                                                <input name="email" type="text" value="<?=$_SESSION['user']['email']?>">
+                                                <label class="form-label" for="">Email</label>
+                                                <input class="form-control" name="email" type="text" value="<?=$_SESSION['user']['email']?>">
                                             </div>
                                         </div>
-                                        <button type="submit" style="border: solid 1px; border-radius: 8px; padding: 4px 8px;">Lưu</button>
+                                        <div class="w-100 d-flex justify-content-end">
+                                            <button class="btn btn-primary float-right me-3" type="submit">Lưu</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>     
@@ -48,22 +50,24 @@
                                                 unset($_COOKIE['error_password']); 
                                             } 
                                         ?>
-                                        <input type="text" name="update_password" hidden>
+                                        <input class="form-control" type="text" name="update_password" hidden>
                                         <div class="content">
                                             <div>
-                                                <label for="">Mật khẩu hiện tại</label>
-                                                <input name="password" type="text">
+                                                <label class="form-label" for="">Mật khẩu hiện tại</label>
+                                                <input class="form-control" name="password" type="text">
                                             </div>
                                             <div>
-                                                <label for="">Mật khẩu mới</label>
-                                                <input name="new_password" type="text">
+                                                <label class="form-label" for="">Mật khẩu mới</label>
+                                                <input class="form-control" name="new_password" type="text">
                                             </div>
                                             <div>
-                                                <label for="">Xác nhận mật khẩu mới</label>
-                                                <input name="confirm_new_password" type="text">
+                                                <label class="form-label" for="">Xác nhận mật khẩu mới</label>
+                                                <input class="form-control" name="confirm_new_password" type="text">
                                             </div>
                                         </div>
-                                        <button type="submit" style="border: solid 1px; border-radius: 8px; padding: 4px 8px;">Lưu</button>
+                                        <div class="w-100 d-flex justify-content-end">
+                                            <button class="btn btn-primary float-right me-3" type="submit">Lưu</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>     
@@ -81,9 +85,9 @@
                                 </div>
                                 <div style="width: 50%;">
                                     <form action="AdminController.php?action=profile" method="POST">
-                                        <input type="text" name="delete_user" hidden>
+                                        <input class="form-control" type="text" name="delete_user" hidden>
                                         <p>Sau khi tài khoản của bạn bị xóa, tất cả tài nguyên và dữ liệu của tài khoản đó sẽ bị xóa vĩnh viễn. Trước khi xóa tài khoản, vui lòng tải xuống bất kỳ dữ liệu hoặc thông tin nào mà bạn muốn giữ lại.</p>
-                                        <button type="submit" style="border: solid 1px; border-radius: 8px; padding: 4px 8px;">Xóa</button>
+                                        <button class="btn btn-primary float-right me-3" type="submit">Xóa</button>
                                     </form>
                                 </div>
                             </div>     

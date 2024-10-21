@@ -35,7 +35,7 @@
                                             <div class="content">
                                                 <div>
                                                     <label for="role">Bạn là</label>
-                                                    <select name="role_name" id="role" required>
+                                                    <select name="role_name" class="form-control form-select" id="role" required>
                                                         <option selected value="student">Sinh viên</option>
                                                         <option value="teacher">Giảng viên</option>
                                                     </select>
@@ -62,8 +62,8 @@
                                                     <input name="confirm_password" type="password" class="form-control" placeholder="Xác nhận mật khẩu" required>
                                                 </div>
 
-                                                <div class="button">
-                                                    <button type="submit" class="button" name="register">Đăng ký</button>
+                                                <div class="button mt-2 text-center">
+                                                    <button type="submit" class="button btn btn-primary" name="register">Đăng ký</button>
                                                 </div>
 
                                                 <div class="button">
