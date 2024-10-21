@@ -49,7 +49,7 @@
                          </li>
                     <?php } ?>
 
-                    <?php if ($_SESSION["user"]['role_name'] == 'teacher' || $_SESSION["user"]['role_name'] == 'admin') { ?>
+                    <?php if ($_SESSION["user"]['role_name'] == 'admin') { ?>
                         <li>
                             <a href="javascript:;" class="has-arrow">
                                 <div class="parent-icon">
@@ -84,12 +84,6 @@
                             </a>
                             <ul style="background-color: unset;">
                                 <li>
-                                    <a href="" class="text-white">
-                                        <i class="bx bx-right-arrow-alt"></i>
-                                        Phân quyền
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="AdminController.php?action=list-post" class="text-white">
                                         <i class="bx bx-right-arrow-alt"></i>
                                         Bài đăng
@@ -106,9 +100,9 @@
                     <?php } ?>
 
                     <!-- Đăng ký khóa học -->
-                    <?php if ($_SESSION["user"]['role_name'] == 'student' || $_SESSION["user"]['role_name'] == 'admin') { ?>
+                    <?php if ($_SESSION["user"]['role_name'] == 'student') { ?>
                         <li>
-                            <a href="AdminController.php?action=list-student-course" class="has-arrow">
+                            <a href="AdminController.php?action=list-student-course" class="">
                                 <div class="parent-icon">
                                     <i class="fa-solid fa-graduation-cap text-white"></i>
                                 </div>
@@ -118,7 +112,7 @@
                         
                         <!-- Các khóa học đã đăng ký -->
                         <li>
-                            <a href="AdminController.php?action=list-student-course-registed" class="has-arrow">
+                            <a href="AdminController.php?action=list-student-course-registed" class="">
                                 <div class="parent-icon">
                                     <i class="icon fa fa-tachometer fa-fw  text-white"></i>
                                 </div>
@@ -136,7 +130,18 @@
                     </li>
                     <?php } ?>
 
-                    <?php if ($_SESSION["user"]['role_name'] == 'teacher' || $_SESSION["user"]['role_name'] == 'admin') { ?>
+                    <?php if ($_SESSION["user"]['role_name'] == 'teacher') { ?>
+                        <li>
+                            <a href="AdminController.php?action=list-student-course" class="">
+                                <div class="parent-icon">
+                                    <i class="fa-solid fa-graduation-cap text-white"></i>
+                                </div>
+                                <div class="menu-title text-white">Khóa học giảng dạy</div>
+                            </a>
+                        </li>
+                    <?php } ?>
+
+                    <?php if ($_SESSION["user"]['role_name'] == 'teacher') { ?>
                         <li>
                             <a href="AdminController.php?action=list-comment" class="">
                                 <div class="parent-icon">

@@ -39,11 +39,20 @@
     
     // course-student
     function getListCourse() {
-        $sql = "SELECT courses.*, users.name as teacher_name
-                FROM courses
-                JOIN users ON courses.teacher_id = users.id
-                WHERE courses.deleted_at IS NULL
-                ORDER BY courses.id DESC";
+        if( $_SESSION["user"]["role_name"] == 'student' ) {
+            $sql = "SELECT courses.*, users.name as teacher_name
+                    FROM courses
+                    JOIN users ON courses.teacher_id = users.id
+                    WHERE courses.deleted_at IS NULL
+                    ORDER BY courses.id DESC";
+        } else {
+            $id =  $_SESSION["user"]["id"];
+            $sql = "SELECT courses.*, users.name as teacher_name
+            FROM courses
+            JOIN users ON courses.teacher_id = users.id
+            WHERE courses.deleted_at IS NULL AND users.id = '$id'
+            ORDER BY courses.id DESC";
+        }
         $courses = pdo_query($sql);
         return $courses;
     }    
@@ -209,11 +218,12 @@
 
     function getCourseWithComment()
     {
+        $userId = $_SESSION["user"]["id"];
         $sql = "SELECT comments.message, users.name as user_name, courses.name, comments.created_at, courses.id as id
             FROM comments
             JOIN courses ON comments.course_id = courses.id
             JOIN users ON comments.user_id = users.id
-            WHERE courses.teacher_id = 7
+            WHERE courses.teacher_id = '$userId'
             AND comments.parent_id IS NULL
             ORDER BY comments.id DESC;
         ";
@@ -249,7 +259,7 @@
     function getListTeacherById($id) {
         $sql = "select users.name from users where id=".$id;
         $name = pdo_query_one($sql);
-        return $name['name'];
+        return $name['name'] ?? '';
     }
 
     function getListCourses(){

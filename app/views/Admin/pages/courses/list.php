@@ -37,7 +37,6 @@
                                         foreach ($courses as $course) {
                                             extract($course);
                                             $editCourse = "AdminController.php?action=edit-course&id=".$id;
-                                            $deleteCourse = "AdminController.php?action=delete-course&id=".$id;
                                             $detailCourse = "AdminController.php?action=detail-course&id=".$id;
                                             echo '
                                                 <tr>
@@ -50,7 +49,7 @@
                                                     <td class="text-center">
                                                         <a href="'.$detailCourse.'" class="px-2 btn hover-color hover-warning event-stop" ><i class="bx bx-file-blank event-stop"></i></a>
                                                         <a href="'.$editCourse.'" class="px-2 btn hover-color hover-warning event-stop"><i class="bx bx-edit-alt event-stop"></i></a>
-                                                        <a href="'.$deleteCourse.'" class="px-2 btn hover-color hover-warning event-stop"><i class="bx bx-trash"></i></a>
+                                                        <a href="#" data-id="'.$id.'" class="px-2 btn btn-delete hover-color hover-warning event-stop"><i class="bx bx-trash"></i></a>
                                                     </td>
                                                 </tr>';
                                         }
@@ -64,3 +63,32 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '.btn-delete', function () {
+            const id = $(this).data('id');
+            Swal.fire({
+                title: 'Bạn có chắc muốn xóa bài đăng này?',
+                showCancelButton: true,
+                icon: "warning",
+                reverseButtons: true,
+                confirmButtonText: "Đồng ý",
+                cancelButtonText: "Hủy",
+                customClass: {
+                    title: 'd-flex',
+                    actions: 'w-100 justify-content-center'
+                },
+                allowOutsideClick: () => !Swal.isLoading()
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const url = "AdminController.php?action=delete-course&id=" + id;
+                    window.location.href = url; 
+                }
+            });
+        })
+    });
+</script>

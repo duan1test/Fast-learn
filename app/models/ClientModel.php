@@ -2,10 +2,8 @@
 
 function login($data) 
 {	
-
     $sql = "select * from users where email='".$data['email']."' and password='".$data['password']."'";
     $user = pdo_query_one($sql);
-    
 	if($user){
         unset($user['password']);
         unset($_SESSION["user"]);

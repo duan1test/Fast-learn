@@ -316,6 +316,7 @@
                 }
                 $teacher = getListTeacherById($course['teacher_id']);
                 $category = getCategoryById($course['category_id']);
+                $comments = getCommentsWithChildren($_GET['id']);
                 include '../views/Admin/pages/courses/detail.php';
                 break;
             //profile

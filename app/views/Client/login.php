@@ -23,13 +23,13 @@
                                 <div class="card-body p-5">
                                     <div class="text-center d-flex flex-column justify-content-center align-items-center">
                                         <div>
-                                            <img style="width: 150px;" src="public/assets/images/logo.png" alt="">
+                                            <img style="width: 150px;" src="../../public/assets/images/logo.png" alt="">
                                         </div>                  
                                         <span class="fw-bold mt-2" style="font-size: 18px;">ĐĂNG NHẬP TÀI KHOẢN</span>
                                     </div>
                                     <div class="">
                                         <div class="form-body">
-                                            <form class="row g-3" method="POST" action="app/controllers/ClientController.php?action=login">
+                                            <form class="row g-3" method="POST" action="ClientController.php?action=login">
                                             <?php
                                                 if(isset($_COOKIE['error'])) {
                                                     $error = '<div class="content"><p style="color: red;text-align: center;">'.$_COOKIE['error'].'</p></div>';
@@ -40,22 +40,22 @@
 
                                             <div class="content">
                                                 <div>
-                                                    <div>
-                                                        <label for="email">Email</label>
+                                                    <div class="mt-2">
+                                                        <label class="form-label" for="email">Email</label>
                                                     </div>
-                                                    <input type="email" name="email" id="email" placeholder="Nhập email của bạn" required>
+                                                    <input class="form-control" type="email" name="email" id="email" placeholder="Nhập email của bạn" required>
                                                 </div>
 
                                                 <div>
-                                                    <div>
-                                                        <label for="password">Mật khẩu</label>
+                                                    <div class="mt-2">
+                                                        <label class="form-label" for="password">Mật khẩu</label>
                                                     </div>
-                                                    <input type="password" name="password" id="password" placeholder="Nhập mật khẩu của bạn" required>
+                                                    <input class="form-control" type="password" name="password" id="password" placeholder="Nhập mật khẩu của bạn" required>
                                                 </div>
                                             </div>
 
-                                            <div class="button">
-                                                <button type="submit" class="button" name="login">Đăng nhập</button>
+                                            <div class="button text-center">
+                                                <button type="submit" class="button btn btn-primary" name="login">Đăng nhập</button>
                                             </div>
 
                                             <div style="text-align: center;">
